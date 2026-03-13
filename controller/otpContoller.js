@@ -13,7 +13,7 @@ exports.sendOtpEmail = async (req,res) =>{
     }
     try {
         await transporter.sendMail({
-            from:process.env.EMAIL_USER,
+            from:process.env.MAIL_USER,
             to:email,
             subject:"OTP Code",
             text:`Your OTP is ${otp} .It expires at 5 minutes`
