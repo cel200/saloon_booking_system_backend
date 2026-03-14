@@ -10,7 +10,7 @@ const paymentController = {
       }
 
       const paymentIntent = await stripe.paymentIntents.create({
-        amount: Math.round(amount * 100), // convert to paise
+        amount: Math.round(amount), // convert to paise
         currency: "inr",
         automatic_payment_methods: {
           enabled: true

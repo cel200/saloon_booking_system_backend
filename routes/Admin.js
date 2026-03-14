@@ -14,6 +14,7 @@ const AvailabilityController = require("../controller/AvailabilityController");
 const DashboardController = require("../controller/DashboardController");
 const NotificationController = require("../controller/NotificationController");
 const paymentController = require("../controller/paymentController");
+const StaffDashBoardController = require("../controller/StaffDashBoardController");
 
 const Admin = express.Router();
 
@@ -55,4 +56,5 @@ Admin.post("/read", NotificationController.markNotificationRead);
 
 Admin.post("/read-all", NotificationController.markAllNotificationsRead);
 Admin.post("/create-payment-intent", paymentController.createPaymentIntent);
+Admin.post("/staffdashboard",StaffDashBoardController.getDashboardStaffStats)
 module.exports = Admin; // ✅ REQUIRED
