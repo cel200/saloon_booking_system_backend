@@ -143,21 +143,21 @@ exports.verifyOTP = async (req, res) => {
     let user;
 
     // USER PORTAL
-    // if (portal === "user") {
-    //   user = await RegisterUser.findOne({ mobileNo: phone });
-    // }
+    if (portal === "user") {
+      user = await RegisterUser.findOne({ mobileNo: phone });
+    }
 
-    // // STAFF PORTAL
-    // if (portal === "staff") {
-    //   user = await RegisterStaff.findOne({ mobileNo: phone });
-    // }
+    // STAFF PORTAL
+    if (portal === "staff") {
+      user = await RegisterStaff.findOne({ mobileNo: phone });
+    }
 
-    // if (!user) {
-    //   return res.status(404).json({
-    //     success: false,
-    //     message: "Account not found",
-    //   });
-    // }
+    if (!user) {
+      return res.status(404).json({
+        success: false,
+        message: "Account not found",
+      });
+    }
 
     res.status(200).json({
       success: true,
