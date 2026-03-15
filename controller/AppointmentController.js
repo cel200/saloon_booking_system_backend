@@ -255,8 +255,8 @@ const AppointmentController = {
   // GET ALL APPOINTMENTS (ADMIN)
   getAppointments: async (req, res) => {
     try {
-
-      const appointments = await Appointment.find()
+      const {id} = req.body
+      const appointments = await Appointment.find({userId:id})
         .populate("user")
         .populate("service")
         .populate("staff");
