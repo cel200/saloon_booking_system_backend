@@ -254,27 +254,33 @@ const AppointmentController = {
 
   // GET ALL APPOINTMENTS (ADMIN)
   getAppointments: async (req, res) => {
-    try {
-      const {id} = req.body
-      const appointments = await Appointment.find({userId:id})
-        .populate("user")
-        .populate("service")
-        .populate("staff");
+  try {
+    const { id } = req.body; // better than body
 
-      res.status(200).json({
-        success: true,
-        data: appointments
-      });
-
-    } catch (error) {
-
-      res.status(500).json({
+    if (!id) {
+      return res.status(400).json({
         success: false,
-        error: error.message
+        message: "User ID is required"
       });
-
     }
-  },
+
+    const appointments = await Appointment.find({ user:id })
+      .populate("user")
+      .populate("service")
+      .populate("staff");
+
+    res.status(200).json({
+      success: true,
+      data: appointments
+    });
+
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      error: error.message
+    });
+  }
+},
 
 
   // GET STAFF APPOINTMENTS

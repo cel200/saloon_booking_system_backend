@@ -40,7 +40,7 @@ Admin.post("/gender", SectionController.getSectionsByGender);
 Admin.post("/add-section", SectionController.addSection);
 Admin.get("/listSection", SectionController.getSection);
 Admin.post("/book-appointment", AppointmentController.bookAppointment);
-Admin.get("/get-appointment", AppointmentController.getAppointments);
+Admin.post("/get-appointment", AppointmentController.getAppointments);
 Admin.post("/get-appointment-staff", AppointmentController.getAppointmentsByStaff);
 Admin.post("/get-available-slots",AvailabilityController.getAvailableSlots)
 Admin.post("/update-status",AppointmentController.updateAppointmentStatus)
