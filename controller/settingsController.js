@@ -14,7 +14,7 @@ const updateSettings = async (req, res) => {
       // { new: true }
     );
    const change = await User.findByIdAndUpdate(
-  "698a195ee2a1ba9c5955cd63",
+  "69b3cbf8d3996e8ad653f499",
   { 
     name: saloonName, 
     email: saloonEmail 
