@@ -55,6 +55,6 @@ Admin.post("/staff", NotificationController.getStaffNotifications);
 Admin.post("/read", NotificationController.markNotificationRead);
 
 Admin.post("/read-all", NotificationController.markAllNotificationsRead);
-Admin.get("/create-payment-intent", paymentController.createPaymentIntent);
+Admin.post("/create-payment-intent", paymentController.createPaymentIntent);
 Admin.post("/staffdashboard",StaffDashBoardController.getDashboardStaffStats)
 module.exports = Admin; // ✅ REQUIRED
