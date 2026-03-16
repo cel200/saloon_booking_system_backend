@@ -3,6 +3,7 @@ const stripe = require("../config/stripe");
 const paymentController = {
   createPaymentIntent: async (req, res) => {
     try {
+
       const { amount } = req.body;
 
       if (!amount) {
@@ -10,11 +11,10 @@ const paymentController = {
       }
 
       const paymentIntent = await stripe.paymentIntents.create({
-        amount: Math.round(amount), // convert to paise
+        amount: Math.round(amount), // amount in paise
         currency: "inr",
-        automatic_payment_methods: {
-          enabled: true
-        }
+
+        payment_method_types: ["card"] // ✅ only card
       });
 
       res.status(200).json({
@@ -22,10 +22,12 @@ const paymentController = {
       });
 
     } catch (error) {
+
       res.status(500).json({
         message: "Payment failed",
         error: error.message
       });
+
     }
   }
 };
