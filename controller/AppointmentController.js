@@ -255,7 +255,7 @@ const AppointmentController = {
   // GET ALL APPOINTMENTS (ADMIN)
   getAppointments: async (req, res) => {
   try {
-    const { id } = req.body; // better than body
+    const { id } = req.body; 
 
     if (!id) {
       return res.status(400).json({
