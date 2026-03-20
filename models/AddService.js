@@ -18,6 +18,10 @@ const AddServiceSchema = new mongoose.Schema(
       type: Number, // store in minutes
       required: true,
     },
+    isFeatured: {      // ✅ new field
+      type: Boolean,
+      // default: false,
+    },
 
     price: {
       type: Number,
