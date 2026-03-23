@@ -11,7 +11,7 @@ const paymentController = {
       }
 
       const paymentIntent = await stripe.paymentIntents.create({
-        amount: Math.round(amount), // amount in paise
+        amount:amount, // amount in paise
         currency: "inr",
 
         payment_method_types: ["card"] // ✅ only card
